@@ -1,0 +1,29 @@
+apiVersion: "0.0.1"
+title: graphql connector
+description: Connects 
+action: MAP
+multiple: true # multiple records can be processed in parallel
+interface:
+  global:
+    - name: inputStringFormat
+      title: Input String Format
+      required: true
+      description: The Format of the string(s) to be converted
+      enum:
+        - utf8
+        - hex
+        - base64
+    - name: outputStringFormat
+      title: Output String Format
+      description: The Format of the resulting string(s)
+      required: true
+      enum:
+        - utf8
+        - hex
+        - base64
+  inputs:
+    - resourceId: charset
+      multiple: true
+  outputs:
+    - resourceId: charset
+      multiple: true

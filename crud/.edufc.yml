@@ -1,0 +1,6 @@
+apiVersion: "0.0.1"
+title: Api function
+name: crud
+description: A versatile api function that can be templated to generate functions based on an openApi schema
+action: CRUD
+multiple: true
