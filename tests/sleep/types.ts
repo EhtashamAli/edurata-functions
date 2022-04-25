@@ -1,6 +1,6 @@
 export type Inputs = {
     sleepTimeMs: number,
-    file: string
+    file?: string
 }
 
 export type Outputs = {
