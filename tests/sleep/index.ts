@@ -7,17 +7,18 @@ const sleep = (ms) => {
   });
 }
 
-export const handler: Handler = async (inputs) => {
+export const handler: Handler = async (inputs, outputs) => {
     await sleep(inputs.sleepTimeMs)
     console.log("Slept " + inputs.sleepTimeMs + " seconds")
     if (inputs.file) {
-      fs.appendFileSync('/tmp/test.txt', ' Hey there again!');
+      const fileContent = await inputs.file.read()
+      console.log("Read file:", fileContent)
+      await outputs.file.write(fileContent + " Hey there again!")
     } else {
-      fs.writeFileSync('/tmp/test.txt', 'Hey there!');
+      await outputs.file.write("Hey there!")
     }
 
-    return  {
-        sleepTimeMs: inputs.sleepTimeMs + 1000,
-        file: "file:test.txt"
-    };
+    outputs.sleepTimeMs = inputs.sleepTimeMs + 1000
+
+    return 0
 };

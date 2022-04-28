@@ -8,4 +8,4 @@ export type Outputs = {
     file?: string
 }
 
-export type Handler = (inputs: Inputs) => Promise<Outputs>
+export type Handler = (inputs: Inputs, outputs: Outputs) => Promise<number>
