@@ -1,11 +1,11 @@
 export type Inputs = {
     sleepTimeMs: number,
-    file?: string
+    file?: File
 }
 
 export type Outputs = {
     sleepTimeMs: number,
-    file?: string
+    file?: File
 }
 
 export type Handler = (inputs: Inputs) => Promise<Outputs>
