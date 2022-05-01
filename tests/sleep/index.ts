@@ -8,7 +8,7 @@ const sleep = (ms) => {
 }
 
 export const handler: Handler = async (inputs) => {
-  let newFile = File();
+  let newFile = new File();
   await sleep(inputs.sleepTimeMs)
   console.log("Slept " + inputs.sleepTimeMs + " seconds")
   if (inputs.file) {
