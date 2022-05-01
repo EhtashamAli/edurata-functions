@@ -1,3 +1,5 @@
+import {File} from "/opt/files"
+
 export type Inputs = {
     sleepTimeMs: number,
     file?: File
