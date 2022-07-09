@@ -1,5 +1,5 @@
-import {Handler} from "types";
-import {File} from "/opt/files"
+import {Handler} from "./types";
+import {File, logger} from "@edurata/sdk"
 
 const sleep = (ms) => {
   return new Promise((resolve) => {
@@ -7,13 +7,22 @@ const sleep = (ms) => {
   });
 }
 
+const testAllLogs = () => {
+  logger.info("Test info")
+  logger.debug("Test debug")
+  logger.warning("Test warning")
+  logger.error("Test error")
+  logger.alert("Test alert")
+}
+
 export const handler: Handler = async (inputs) => {
   let newFile = new File();
+  testAllLogs()
   await sleep(inputs.sleepTimeMs)
-  console.log("Slept " + inputs.sleepTimeMs + " seconds")
+  logger.info("Slept " + inputs.sleepTimeMs + " seconds")
   if (inputs.file) {
     const fileContent = await inputs.file.read()
-    console.log("Read file:", fileContent)
+    logger.info(`Read file: ${fileContent}`)
     await newFile.write(fileContent + " Hey there again!")
   } else {
     await newFile.write("Hey there!")

@@ -1,4 +1,4 @@
-import {File} from "/opt/files"
+import {File} from "@edurata/sdk"
 
 export type Inputs = {
     sleepTimeMs: number,
